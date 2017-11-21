@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Edit Task</h1>
+<%= form_for(@task) do |field| %>
+  <div class="form-group">
+    <%= field.label :title %>
+    <%= field.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= field.label :details %>
+    <%= field.text_field :details, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+  <%= field.check_box :completed, {}, "true", "false" %> Completed</br></br>
+  </div>
+
+  <%= field.submit class: 'btn btn-primary' %>
+<% end %>
+<br>
+<p><%= link_to "Back to list", tasks_path %></p>
+
+</div>

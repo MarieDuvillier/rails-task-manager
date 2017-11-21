@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>My tasks</h1>
+  <ul class="list-unstyled">
+    <% @tasks.each do |task| %>
+    <li>
+      <% if task.completed %>
+      <i class="fa fa-check-square-o" aria-hidden='true'></i> <%= link_to task.title, task_path(task) %>
+      <% else %>
+      <i class="fa fa-square-o" aria-hidden='true'></i> <%= link_to task.title, task_path(task) %>
+      <% end %>
+      <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+    </li>
+    <% end %>
+  </ul>
+  <p><%= link_to "Add task", new_task_path %></p>
+</div>
